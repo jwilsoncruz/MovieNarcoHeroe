@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narco Héroe - Sitio Oficial de Fans</title>
+    <style>
+        :root { --red: #e74c3c; --black: #0d0d0d; --gray: #1a1a1a; --gold: #f1c40f; }
+        body { background-color: var(--black); color: white; font-family: 'Segoe UI', sans-serif; text-align: center; margin: 0; padding: 0; }
+        
+        header { padding: 60px 20px; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=1000'); background-size: cover; border-bottom: 4px solid var(--red); }
+        h1 { font-size: 3.5rem; letter-spacing: 10px; margin: 0; text-transform: uppercase; }
+        .tagline { color: var(--red); font-weight: bold; letter-spacing: 2px; }
+
+        /* Contador */
+        #countdown { display: flex; justify-content: center; gap: 15px; margin: 40px 0; }
+        .time-box { background: var(--gray); padding: 20px; border-radius: 10px; min-width: 80px; border: 1px solid #333; }
+        .time-box span { display: block; font-size: 2.5rem; font-weight: bold; color: var(--red); }
+        .label { font-size: 0.7rem; text-transform: uppercase; color: #888; }
+
+        /* SECCIÓN: RUTA DE ESTRENOS */
+        .tour-section { max-width: 900px; margin: 40px auto; padding: 20px; background: #111; border-radius: 15px; border: 1px solid var(--red); }
+        h2 { color: var(--gold); text-transform: uppercase; letter-spacing: 3px; }
+        .tour-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: left; padding: 20px; }
+        .event { border-left: 3px solid var(--gold); padding-left: 15px; }
+        .event date { color: var(--red); font-weight: bold; display: block; }
+
+        /* GALERÍA */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 40px 20px; max-width: 1200px; margin: auto; }
+        .gallery img { width: 100%; border-radius: 10px; border: 2px solid #222; transition: 0.4s; cursor: pointer; }
+        .gallery img:hover { transform: scale(1.03); border-color: var(--red); }
+
+        /* REDES SOCIALES */
+        .social-bar { margin: 40px 0; }
+        .btn { padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; margin: 10px; display: inline-block; transition: 0.3s; }
+        .btn-ws { background: #25d366; color: white; }
+        .btn-tk { background: #000; color: white; border: 1px solid white; }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(255,255,255,0.1); }
+
+        footer { padding: 40px; color: #444; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>NARCO HÉROE</h1>
+        <p class="tagline">GIRA NACIONAL E INTERNACIONAL</p>
+    </header>
+
+    <div id="countdown">
+        <div class="time-box"><span id="days">00</span><span class="label">Días</span></div>
+        <div class="time-box"><span id="hours">00</span><span class="label">Horas</span></div>
+        <div class="time-box"><span id="mins">00</span><span class="label">Min</span></div>
+    </div>
+
+    <section class="tour-section">
+        <h2>📍 Ruta de Estrenos & Gira de Festivales</h2>
+        <div class="tour-grid">
+            <div class="event">
+                <date>Diciembre 2025</date>
+                <strong>La Paz</strong><br>Festival de Cine Local
+            </div>
+            <div class="event">
+                <date>Enero 2026</date>
+                <strong>Trinidad</strong><br>Estreno Regional Beni
+            </div>
+            <div class="event">
+                <date>Febrero 2026</date>
+                <strong>Cochabamba</strong><br>Gira Eje Central
+            </div>
+            <div class="event">
+                <date>Mediados 2026</date>
+                <strong>Colombia & Brasil</strong><br>Circuito Internacional
+            </div>
+        </div>
+    </section>
+
+    <div class="social-bar">
+        <a href="https://wa.me/?text=¡Únete a la gira de Narco Héroe! 🎬" class="btn btn-ws">Unirse al Canal WhatsApp</a>
+        <a href="https://www.tiktok.com/@funnro1denarcoheroe" target="_blank" class="btn btn-tk">Seguir en TikTok</a>
+    </div>
+
+    <section class="gallery">
+        <img src="http://googleusercontent.com/generated_image_content/0" alt="Flyer Principal">
+        <img src="http://googleusercontent.com/generated_image_content/1" alt="Flyer Personajes">
+        <img src="http://googleusercontent.com/generated_image_content/2" alt="Flyer Locaciones">
+    </section>
+
+    <footer>
+        <p>Contenido creado por fans para apoyo al cine nacional.</p>
+        <p>Director: Gory Patiño | Estreno Tentativo: Noviembre 2026</p>
+    </footer>
+
+    <script>
+        const targetDate = new Date("November 1, 2026 00:00:00").getTime();
+        function updateTimer() {
+            const now = new Date().getTime();
+            const diff = targetDate - now;
+            document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("mins").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        }
+        setInterval(updateTimer, 60000);
+        updateTimer();
+    </script>
+</body>
+</html>
